@@ -1,5 +1,4 @@
 package org.example;
-import java.util.Arrays;
 
 public class Busqueda {
     public int buscar(int[] lista, int valor){
@@ -47,63 +46,33 @@ public class Busqueda {
     }
 
 
+    public class InsertionSort {
+        public static void insertionSort(int[] arr) {
+            for (int i = 1; i < arr.length; i++) {
+                int clave = arr[i];
+                int j = i - 1;
 
-
-        // Método que divide el arreglo recursivamente
-        public static void mergeSort(int[] arreglo) {
-            int n = arreglo.length;
-
-            // Caso base: si el arreglo tiene 1 o 0 elementos, ya está ordenado
-            if (n < 2) {
-                return;
+                // Mueve los elementos que son mayores que la clave
+                // una posición adelante de su posición actual
+                while (j >= 0 && arr[j] > clave) {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = clave;
             }
-
-            int mitad = n / 2;
-            int[] izquierdo = new int[mitad];
-            int[] derecho = new int[n - mitad];
-
-            // Llenar el arreglo izquierdo
-            for (int i = 0; i < mitad; i++) {
-                izquierdo[i] = arreglo[i];
-            }
-
-            // Llenar el arreglo derecho
-            for (int i = mitad; i < n; i++) {
-                derecho[i - mitad] = arreglo[i];
-            }
-
-            // Llamadas recursivas para dividir ambas mitades
-            mergeSort(izquierdo);
-            mergeSort(derecho);
-
-            // Fusionar las mitades ordenadas
-            fusionar(arreglo, izquierdo, derecho);
         }
 
-        // Método que fusiona los arreglos ordenados
-        public static void fusionar(int[] arreglo, int[] izquierdo, int[] derecho) {
-            int i = 0, j = 0, k = 0;
+        public void main(String[] args) {
+            int[] numeros = {12, 11, 13, 5, 6};
 
-            // Comparar elementos de ambos arreglos y ordenarlos en el arreglo original
-            while (i < izquierdo.length && j < derecho.length) {
-                if (izquierdo[i] <= derecho[j]) {
-                    arreglo[k++] = izquierdo[i++];
-                } else {
-                    arreglo[k++] = derecho[j++];
-                }
-            }
+            insertionSort(numeros);
 
-            // Copiar los elementos restantes del arreglo izquierdo (si los hay)
-            while (i < izquierdo.length) {
-                arreglo[k++] = izquierdo[i++];
-            }
-
-            // Copiar los elementos restantes del arreglo derecho (si los hay)
-            while (j < derecho.length) {
-                arreglo[k++] = derecho[j++];
+            System.out.print("Arreglo ordenado: ");
+            for (int num : numeros) {
+                System.out.print(num + " ");
             }
         }
     }
 
 
-
+}
