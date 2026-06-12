@@ -49,17 +49,6 @@ public class Busqueda {
 
 
 
-        // Método principal para probar el algoritmo
-        public static void main(String[] args) {
-            int[] arreglo = {38, 27, 43, 3, 9, 82, 10};
-
-            System.out.println("Arreglo original: " + Arrays.toString(arreglo));
-
-            mergeSort(arreglo);
-
-            System.out.println("Arreglo ordenado: " + Arrays.toString(arreglo));
-        }
-
         // Método que divide el arreglo recursivamente
         public static void mergeSort(int[] arreglo) {
             int n = arreglo.length;
