@@ -45,4 +45,34 @@ public class Busqueda {
 
     }
 
+
+    public class InsertionSort {
+        public static void insertionSort(int[] arr) {
+            for (int i = 1; i < arr.length; i++) {
+                int clave = arr[i];
+                int j = i - 1;
+
+                // Mueve los elementos que son mayores que la clave
+                // una posición adelante de su posición actual
+                while (j >= 0 && arr[j] > clave) {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = clave;
+            }
+        }
+
+        public void main(String[] args) {
+            int[] numeros = {12, 11, 13, 5, 6};
+
+            insertionSort(numeros);
+
+            System.out.print("Arreglo ordenado: ");
+            for (int num : numeros) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+
+
 }
